@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: my-app-pod
+  labels: 
+    name: my-app
+    type: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports: 
+        - containePort: 8080
+      nodeSelector: 
+        size: Large
+
+#kubectl label nodes node01 size=Large

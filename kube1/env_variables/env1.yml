@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: webserver
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: webwatcher
+    image: nginx
+    env: 
+      name:
+      value:
+    env: 
+      - name: db-passwd
+        valueFrom: 
+          secretKeyRef:
+            name: secret-app
+            key: DB_password
+      

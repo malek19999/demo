@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: httpd-server-deply
+  labels: 
+    app: httpd
+    type: backend
+spec:
+  template:
+    metadata:
+      name: httpd-pod
+      labels: 
+        app: httpd
+        type: backend
+    spec: 
+      containers: 
+        - name: httpd
+          image: httpd:2.4-alpine
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpd
+      type: backend

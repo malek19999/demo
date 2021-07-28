@@ -1,0 +1,13 @@
+#when we  create a pv and mount it with google cloud or aws or ....   we have to create the storage inthe cloud google or ....  , but why we do not make this happen automaticaly
+#that can happen with storage classe 
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata: 
+  name: my_storage
+provisioner: kubernetes.io/gce-pd #this is for google search on k8s for aws and others
+parameters:
+  type: pd-standard # or pd-ssd
+  replication-type: none #regional-pd
+
+# and you must add in thee spec of the pvc this :
+#storageClassName: my_storage

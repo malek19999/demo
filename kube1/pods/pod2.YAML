@@ -1,0 +1,11 @@
+apiversion: v1
+kind: pod 
+metadata: 
+    name: myapp
+    labels: 
+      app: myapp
+      type: simple-api
+spec: 
+   container: 
+      -name: rest-api
+      image: nodejs

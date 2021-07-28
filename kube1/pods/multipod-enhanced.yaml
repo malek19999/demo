@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: my-app-pod
+  labels: 
+    app: my-app
+    type: frontend
+spec: 
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 8080
+    volumeMounts:
+    -  mountPath: /var/log/event-simulator
+       name: logvolume
+  - name: log_cont
+    image: log_cont 
+    volumeMounts:
+    -  mountPath: /log
+       name: logvolume
+  volumes:
+  - hostPath:
+      path: /var/log/webapp
+      type: DirectoryorCreate
+    name: logvolume # the same

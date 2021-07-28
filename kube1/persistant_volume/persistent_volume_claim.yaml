@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc # a pvc will be bounded to one pv (persistent volume) k8s will manage the binding between them
+spec:
+  accesMode: 
+    - ReadWriteOnce
+  ressource:
+    request:
+      storage: 500Mi

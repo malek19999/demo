@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: nginx
+  labels: 
+    app: nginx
+    type: backend
+  
+spec: 
+  containers:
+    - name: webapp
+      image: nginx
+      commands: ["sleep"]
+      args: ["5"]

@@ -1,0 +1,5 @@
+when you want to log in a container that it is in multicontainer pod you have to specify the container name after the pod name 
+
+
+kubectl logs -f myapp-pod  mycontainer-name
+            you can add  -c before the name of container

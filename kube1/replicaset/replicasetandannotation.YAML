@@ -1,0 +1,21 @@
+apiversion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: myapp-replicaset
+  annotations:
+    buildversion: 1.23
+spec:
+  template: 
+    metadata:
+      name: first-pod-dec
+      labels: 
+        app: myapp
+        type: rest-api
+      container:
+        -name: simple-api
+        image: malekrepos/simple-api
+  replicas: 4
+  selectors: 
+    matchLabels:
+      app: myapp
+      type: rest-api
