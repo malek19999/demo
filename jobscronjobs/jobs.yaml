@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Jobs
+metadata:
+  name: my-job
+  labels:
+    name: job_app
+spec: 
+  completions: 3 # the number of healthy pod to deploy
+  parallelism: 3 # to deploy 3 pods with out checkin if they are healthy or not     it is optionel 
+  template:
+    spec: 
+      containers: 
+      - name: myapp
+        image: nginx
+        command: ["expr","3","+","5"]
+      restartPolicy: Nerver # or always
